@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+  <head>
+    <!after whole page loads, the initialization of dash player is called automatically(You can see in the last line of vidcontrol.js)>
+
+    <!import of needed javascript files>
+    <script src="dash.all.min.js"></script>
+    <script src="vidcontrol.js"></script>
+    <title>MyPlayer</title>
+    <!Some style information>
+    <style type="text/css">
+      div#controlpanel{background: #333; padding:10px; color: #CCC;}
+      div#playerframe{width:800px;}
+      input#seekslider{width:300px;}
+      input[type='range'] {
+	appearance: none !important;
+	background: #000;
+	border:#666 1px solid;
+	height:4px;
+      }
+      input[type='range']::slider-thumb {
+	appearance: none !important;
+	background: #FFF;
+	height:15px;
+	width:15px;
+	border-radius:100%;
+	cursor:pointer;
+      }
+      button#ppbutton{
+	background:url(play.png);
+	border:none;
+	width:32px;
+	height:32px;
+	cursor:pointer;
+}
+    </style>
+  </head>
+  <body>
+    <!Control and the video object put into same container to match the size>
+    <div id="playerframe">
+      <video id="videoPlayer" width="800" height="450"></video>
+      <!Video play manager part>
+      <div id="controlpanel">
+	<!Play-pause>
+        <button id="ppbutton"></button>
+	<!Jumper to time selected>
+	<input id="seekslider" type="range" min="0" max="100" value="0" step="1">
+	<!Shows current time and total duration of the video>
+	<span id="curtime"></span> / <span id="durtime"></span>
+	<button id="mutebtn">Mute</button>
+	<!Changes playbackrate(0.5x,1x,1.5x,2x)>
+        <button id="pbrsw"">Pbrswitch</button>
+	<!Initialization of pb rate>
+	<span id="pbrate">1x</span>
+	<button id="screenshot">SS</button>
+	<button id="fullscreenbtn">FS</button>
+      </div>
+    </div>
+    
+  </body>
+</html>
